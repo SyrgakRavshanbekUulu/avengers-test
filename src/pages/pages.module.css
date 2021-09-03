@@ -1,0 +1,30 @@
+.addform {
+  display: flex;
+  flex-direction: column;
+  align-items: space-between;
+  border: 3px solid var(--primary);
+  background-color: var(--gray-light);
+  border-radius: 10px;
+  padding: 40px;
+  margin-top: 40px;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1240px;
+}
+
+.btn {
+  align-self: flex-end;
+  margin: 10px;
+}
+.table, .table td {
+  border: 1px solid var(--black);
+}
+.table td {
+  width: 200px;
+  padding: 5px;
+}

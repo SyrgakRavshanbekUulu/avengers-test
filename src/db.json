@@ -1,0 +1,47 @@
+{
+  "banks": [
+    {
+      "bankId": 1,
+      "title": "Бакай Банк"
+    },
+    {
+      "bankId": 2,
+      "title": "Кыргызстан Банк"
+    },
+    {
+      "bankId": 3,
+      "title": "Эко Ислам Банк"
+    },
+    {
+      "bankId": 4,
+      "title": "РСК Банк"
+    }
+  ],
+  "action": [
+    {
+      "id": 1,
+      "amount": 200,
+      "bankId": 1
+    },
+    {
+      "id": 2,
+      "amount": 300,
+      "bankId": 2
+    },
+    {
+      "id": 3,
+      "amount": 100,
+      "bankId": 3
+    },
+    {
+      "id": 4,
+      "amount": 2000,
+      "bankId": 4
+    },
+    {
+      "id": 5,
+      "amount": 200,
+      "bankId": 1
+    }
+  ]
+}
