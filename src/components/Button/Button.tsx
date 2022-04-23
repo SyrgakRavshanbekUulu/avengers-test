@@ -1,5 +1,5 @@
-import {ButtonProps} from './button.props'
-import styles from './button.module.css'
+import { ButtonProps } from './Button.types'
+import styles from './Button.module.css'
 import cn from 'classnames'
 
 export const Button =

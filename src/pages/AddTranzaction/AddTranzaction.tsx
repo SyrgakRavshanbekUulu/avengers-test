@@ -1,17 +1,18 @@
-import {useEffect, useState} from 'react'
-import {Controller, useForm} from 'react-hook-form'
-import {useHistory} from 'react-router'
-import {Button, DropDown, Input} from '../components'
-import {WithLayout} from '../components/Layout/layout'
-import {getBanks} from '../service/api'
-import styles from './pages.module.css'
+import { useEffect, useState } from 'react'
+import { Controller, useForm } from 'react-hook-form'
+import { useHistory } from 'react-router'
+import { Button, DropDown, Input } from '../../components'
+import { WithLayout } from '../../components/Layout/Layout'
+import { getBanks } from '../../service/api'
+import { IAddTranzaction, IBanks } from './AddTranzaction.types'
+import styles from '../pages.module.css'
 
 const AddTranzaction = () => {
   const {
     register,
     handleSubmit,
     control,
-    formState: {errors},
+    formState: { errors },
   } = useForm<IAddTranzaction>()
   const [banks, setBanks] = useState<IBanks[]>([])
   useEffect(() => {
@@ -35,15 +36,15 @@ const AddTranzaction = () => {
           placeholder="Сумма"
           error={errors.summa}
           {...register(
-              'summa',
-              {required: {value: true, message: 'Заполните поле'}},
+            'summa',
+            { required: { value: true, message: 'Заполните поле' } },
           )}
         />
         <Controller
           control={control}
           name='bank'
-          rules={{required: {value: true, message: 'Выберите банк'}}}
-          render={({field}) => (
+          rules={{ required: { value: true, message: 'Выберите банк' } }}
+          render={({ field }) => (
             <DropDown
               {...field}
               menu={banks}
@@ -64,13 +65,3 @@ const AddTranzaction = () => {
 }
 
 export default WithLayout(AddTranzaction)
-
-interface IAddTranzaction {
-  summa: number
-  bank: string
-}
-
-export interface IBanks {
-  bankId: string | number
-  title: string
-}

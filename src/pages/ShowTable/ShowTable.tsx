@@ -1,8 +1,9 @@
-import {useEffect, useState} from 'react'
-import {WithLayout} from '../components/Layout/layout'
-import {getActions, getBanks} from '../service/api'
-import {IBanks} from './add-tranzaction'
-import styles from './pages.module.css'
+import { WithLayout } from 'components/Layout/Layout'
+import { IBanks } from 'pages/AddTranzaction/AddTranzaction.types'
+import { useEffect, useState } from 'react'
+import { getActions, getBanks } from 'service/api'
+import styles from '../pages.module.css'
+import { IShowTable } from './ShowTable.types'
 
 
 const ShowTable = () => {
@@ -12,9 +13,7 @@ const ShowTable = () => {
 
   useEffect(() => {
     getActions().then((res) => setAction(res)).then(() => setLoad(true))
-    if (load) {
-      getBanks().then((res) => setBanks(res))
-    }
+    getBanks().then((res) => setBanks(res))
   }, [])
   const titleBank = (n: number | string) => {
     const bank = banks.find((el) => el.bankId === n)
@@ -40,18 +39,10 @@ const ShowTable = () => {
             </tr>
           ))}
         </tbody>
-
       </table>
-
     </div>
 
   )
 }
 
 export default WithLayout(ShowTable)
-
-interface IShowTable {
-  id: string | number
-  amount: number
-  bankId: string | number
-}

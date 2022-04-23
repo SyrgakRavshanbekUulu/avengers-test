@@ -1,7 +1,7 @@
-import {DropDownProps} from './drop-down.props';
-import styles from './drop-down.module.css'
+import { DropDownProps } from './Dropdown.types';
+import styles from './Dropdown.module.css'
 import cn from 'classnames'
-import {ForwardedRef, forwardRef} from 'react';
+import { ForwardedRef, forwardRef } from 'react';
 export const DropDown = forwardRef(({
   menu,
   label,

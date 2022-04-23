@@ -1,5 +1,5 @@
-import styles from './navigation.module.css'
-import {Link} from 'react-router-dom'
+import styles from './Navigation.module.css'
+import { Link } from 'react-router-dom'
 
 export const Navbar = () => {
   return (

@@ -1,5 +1,5 @@
-import {WithLayout} from '../components/Layout/layout'
-import styles from './pages.module.css'
+import { WithLayout } from 'components/Layout/Layout'
+import styles from '../pages.module.css'
 
 const Home = () => {
   return (

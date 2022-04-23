@@ -1,9 +1,9 @@
-import {LayoutProps} from './layout.props';
-import styles from './layout.module.css'
-import {Navbar} from '..';
-import {FunctionComponent} from 'react';
+import { LayoutProps } from './Layout.types';
+import styles from './Layout.module.css'
+import { Navbar } from '..';
+import { FunctionComponent } from 'react';
 
-const Layout = ({children}: LayoutProps) => {
+const Layout = ({ children }: LayoutProps) => {
   return (
     <div className={styles.wrapper}>
       <Navbar />
@@ -14,7 +14,7 @@ const Layout = ({children}: LayoutProps) => {
 
 export const WithLayout = <T extends Record<
   string, unknown>
-  >(Component: FunctionComponent<T>) => {
+>(Component: FunctionComponent<T>) => {
   return function withLayoutComponent(props: T): JSX.Element {
     return (
       <Layout>

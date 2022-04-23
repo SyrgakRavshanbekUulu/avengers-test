@@ -1,6 +1,6 @@
-import {InputProps} from './input.props';
-import styles from './input.module.css'
-import {ForwardedRef, forwardRef} from 'react';
+import { InputProps } from './Input.types';
+import styles from './Input.module.css'
+import { ForwardedRef, forwardRef } from 'react';
 import cn from 'classnames';
 
 export const Input = forwardRef(({

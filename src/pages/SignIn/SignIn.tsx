@@ -1,14 +1,15 @@
-import {useForm} from 'react-hook-form'
-import {useHistory} from 'react-router'
-import {Button, Input} from '../components'
-import {WithLayout} from '../components/Layout/layout'
-import styles from './pages.module.css'
+import { Input, Button } from 'components/index'
+import { WithLayout } from 'components/Layout/Layout'
+import { useForm } from 'react-hook-form'
+import { useHistory } from 'react-router'
+import styles from '../pages.module.css'
+import { ISignIn } from './SignIn.types'
 
 const SignIn = () => {
   const {
     register,
     handleSubmit,
-    formState: {errors},
+    formState: { errors },
   } = useForm<ISignIn>()
   const history = useHistory()
   const onSubmit = (data: ISignIn) => {
@@ -26,8 +27,8 @@ const SignIn = () => {
           type='email'
           error={errors.login}
           {...register(
-              'login',
-              {required: {value: true, message: 'Заполните поле'}},
+            'login',
+            { required: { value: true, message: 'Заполните поле' } },
           )}
         />
         <Input
@@ -35,8 +36,8 @@ const SignIn = () => {
           type='password'
           error={errors.password}
           {...register(
-              'password',
-              {required: {value: true, message: 'Заполните поле'}},
+            'password',
+            { required: { value: true, message: 'Заполните поле' } },
           )}
         />
         <Button
@@ -52,7 +53,3 @@ const SignIn = () => {
 
 export default WithLayout(SignIn)
 
-interface ISignIn {
-  login: string
-  password: string
-}

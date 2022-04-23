@@ -27,5 +27,6 @@ module.exports = {
     'react/display-name': 'off',
     'indent': 'warn',
     'new-cap': 'off',
+    'object-curly-spacing': 'off',
   },
 };
