@@ -1,8 +1,10 @@
+import { yupResolver } from '@hookform/resolvers/yup'
 import { Input, Button } from 'components/index'
 import { WithLayout } from 'components/Layout/Layout'
 import { useForm } from 'react-hook-form'
 import { useHistory } from 'react-router'
 import styles from '../pages.module.css'
+import { signInSchema } from './schema'
 import { ISignIn } from './SignIn.types'
 
 const SignIn = () => {
@@ -10,7 +12,10 @@ const SignIn = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<ISignIn>()
+  } = useForm<ISignIn>({
+    resolver: yupResolver(signInSchema),
+    mode: 'onChange',
+  })
   const history = useHistory()
   const onSubmit = (data: ISignIn) => {
     console.log(data)
@@ -24,21 +29,15 @@ const SignIn = () => {
         onSubmit={handleSubmit(onSubmit)}>
         <Input
           label="Логин"
-          type='email'
+          type='text'
           error={errors.login}
-          {...register(
-            'login',
-            { required: { value: true, message: 'Заполните поле' } },
-          )}
+          {...register('login')}
         />
         <Input
           label="Пароль"
           type='password'
           error={errors.password}
-          {...register(
-            'password',
-            { required: { value: true, message: 'Заполните поле' } },
-          )}
+          {...register('password')}
         />
         <Button
           color='primary'

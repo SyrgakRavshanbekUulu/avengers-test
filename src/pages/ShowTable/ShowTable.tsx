@@ -1,9 +1,9 @@
 import { WithLayout } from 'components/Layout/Layout'
 import { IBanks } from 'pages/AddTranzaction/AddTranzaction.types'
 import { useEffect, useState } from 'react'
-import { getActions, getBanks } from 'service/api'
 import styles from '../pages.module.css'
 import { IShowTable } from './ShowTable.types'
+import apiService from 'service/api/api';
 
 
 const ShowTable = () => {
@@ -12,8 +12,9 @@ const ShowTable = () => {
   const [load, setLoad] = useState<boolean>(false)
 
   useEffect(() => {
-    getActions().then((res) => setAction(res)).then(() => setLoad(true))
-    getBanks().then((res) => setBanks(res))
+    apiService.actions.getActions()
+      .then((res) => setAction(res.data)).then(() => setLoad(true))
+    apiService.banks.getAllBanks().then((res) => setBanks(res.data))
   }, [])
   const titleBank = (n: number | string) => {
     const bank = banks.find((el) => el.bankId === n)

@@ -25,7 +25,7 @@ module.exports = {
     'semi': 'off',
     'react/react-in-jsx-scope': 'off',
     'react/display-name': 'off',
-    'indent': 'warn',
+    'indent': 'off',
     'new-cap': 'off',
     'object-curly-spacing': 'off',
   },
